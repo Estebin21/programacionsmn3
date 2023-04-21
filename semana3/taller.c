@@ -7,7 +7,7 @@ int main (int argc, char *argv[]) {
     float num1=0, num2=0, num3=0, num4=0, num5=0;
     float subtotal=0, total=0, descuento=0;
     char opcion, menu;
-    int producto;
+    int resp;
     char nombre[50], cedula[20];
 
 do{
@@ -60,9 +60,9 @@ do{
 
             printf("Quieres otro producto: \n");
             printf("Si=1 o No=0\n");
-            scanf("%d", &producto);
+            scanf("%d", &resp);
 
-        }while(producto==1 && menu=='a');
+        }while(resp==1 && menu=='a');
         break;
 
         case'b':
@@ -137,7 +137,7 @@ do{
                 break;
     }    
 
-} while (producto==0 && menu=='a');
+} while (resp==0 && menu=='a');
     
     return 0;
 }
