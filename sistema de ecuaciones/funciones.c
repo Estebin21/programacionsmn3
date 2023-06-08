@@ -1,52 +1,52 @@
 #include <stdio.h>
 #include "funciones.h"
 
-float calcularDeterminante(float matrix[3][3]) {
+float calcularDeterminante(float matriz[3][3]) {
     float det;
 
-    det = matrix[0][0] * (matrix[1][1] * matrix[2][2] - matrix[1][2] * matrix[2][1]) -
-          matrix[0][1] * (matrix[1][0] * matrix[2][2] - matrix[1][2] * matrix[2][0]) +
-          matrix[0][2] * (matrix[1][0] * matrix[2][1] - matrix[1][1] * matrix[2][0]);
+    det = matriz[0][0] * (matriz[1][1] * matriz[2][2] - matriz[1][2] * matriz[2][1]) -
+          matriz[0][1] * (matriz[1][0] * matriz[2][2] - matriz[1][2] * matriz[2][0]) +
+          matriz[0][2] * (matriz[1][0] * matriz[2][1] - matriz[1][1] * matriz[2][0]);
 
     return det;
 }
 
-void resolverSistema(float matrix[3][3], float vector[3]) {
-    float det = calcularDeterminante(matrix);
+void resolverSistema(float matriz[3][3], float vector[3]) {
+    float det = calcularDeterminante(matriz);
 
     if (det == 0) {
         printf("El sistema no tiene solución única.\n");
         return;
     }
 
-    float matrix_x[3][3], matrix_y[3][3], matrix_z[3][3];
+    float matriz_x[3][3], matriz_y[3][3], matriz_z[3][3];
     float det_x, det_y, det_z;
 
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             if (j == 0) {
-                matrix_x[i][j] = vector[i];
+                matriz_x[i][j] = vector[i];
             } else {
-                matrix_x[i][j] = matrix[i][j];
+                matriz_x[i][j] = matriz[i][j];
             }
 
             if (j == 1) {
-                matrix_y[i][j] = vector[i];
+                matriz_y[i][j] = vector[i];
             } else {
-                matrix_y[i][j] = matrix[i][j];
+                matriz_y[i][j] = matriz[i][j];
             }
 
             if (j == 2) {
-                matrix_z[i][j] = vector[i];
+                matriz_z[i][j] = vector[i];
             } else {
-                matrix_z[i][j] = matrix[i][j];
+                matriz_z[i][j] = matriz[i][j];
             }
         }
     }
 
-    det_x = calcularDeterminante(matrix_x);
-    det_y = calcularDeterminante(matrix_y);
-    det_z = calcularDeterminante(matrix_z);
+    det_x = calcularDeterminante(matriz_x);
+    det_y = calcularDeterminante(matriz_y);
+    det_z = calcularDeterminante(matriz_z);
 
     float x, y, z;
     x = det_x / det;

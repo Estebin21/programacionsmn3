@@ -2,14 +2,14 @@
 #include "funciones.h"
 
 int main() {
-    float matrix[3][3];
+    float matriz[3][3];
     float vector[3];
 
     printf("Ingrese los elementos de la matriz 3x3:\n");
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             printf("ingresa un termino:\n");
-            scanf("%f", &matrix[i][j]);
+            scanf("%f", &matriz[i][j]);
         }
     }
 
@@ -19,7 +19,7 @@ int main() {
         scanf("%f", &vector[i]);
     }
 
-    resolverSistema(matrix, vector);
+    resolverSistema(matriz, vector);
 
     return 0;
 }
