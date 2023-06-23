@@ -33,4 +33,5 @@ int main() {
     printf("Área del triángulo: %.2f\n", area);
 
     return 0;
+    
 }
